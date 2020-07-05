@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday!</title>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+
+
+</head>
+
+<body>
+	<div id="error-msg">Please use a desktop device to browse this page.</div>
+    <div id="card">
+        <div id="card-inside">
+            <div class="wrap">
+                <p>Dear PAPA,</p>
+                <p>As each year passes, I come to realize just how lucky Iam to have a Wonderfull father like you.</p>
+                <p>You will always hold a special place in my heart, papa, Hope your is a good one!</p>
+                <p class="signed">From Mama, Rudransh and Shivaay</p>
+            </div>
+        </div>
+
+        <div id="card-front">
+            <div class="wrap">
+                <img src="{{url_for('static', filename='WhatsApp Image 2020-07-05 at 4.02.54 PM.jpeg')}}" style="width:280px;height:300px;" />
+                <h1>Happy Birthday!</h1>
+                <p>It's your special day today!</p>
+                <span class="link" id="open">Click Here</span>
+            </div>
+            <button id="close" title="Close Greetings Card!">&times;</button>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+(function() {
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+    var card = $('card'),
+        openB = $('open'),
+        closeB = $('close'),
+        timer = null;
+    openB.addEventListener('click', function() {
+        card.setAttribute('class', 'open-half');
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(function() {
+            card.setAttribute('class', 'open-fully');
+            timer = null;
+        }, 1000);
+    });
+
+    closeB.addEventListener('click', function() {
+        card.setAttribute('class', 'close-half');
+        if (timer) clearTimerout(timer);
+        timer = setTimeout(function() {
+            card.setAttribute('class', '');
+            timer = null;
+        }, 1000);
+    });
+
+}());
+    </script>
+
+</body>
+
+</html>
